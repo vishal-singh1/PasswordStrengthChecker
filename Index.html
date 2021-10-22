@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasswordStrengthChecker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Password">
+            <button id="ico" type="submit"><i class="fas fa-arrow-circle-right fa-lg"></i></button>
+            <p id="message">Password is <span id="strength"></span></p>
+        </div>
+    </div>
+    
+    <script>
+
+            var pass = document.getElementById("password");
+            var msg  = document.getElementById("message");
+            var str = document.getElementById("strength");
+            var ico = document.getElementById("ico");
+
+            pass.addEventListener("input", () => {
+                if(pass.value.length > 0){
+                    msg.style.display = "block";
+                } else {
+                    msg.style.display = "none";
+                }
+                if(pass.value.length < 4){
+                    str.innerHTML = "Weak";
+                    pass.style.borderColor = "#ff5925";
+                    msg.style.color = "#ff5925";
+                    ico.style.color = "#ff5925";
+                    pass.style.transitionDuration = "1s";
+                    msg.style.transitionDuration = "1s";
+                    ico.style.transitionDuration = "1s";
+                } else if(pass.value.length >= 4 && pass.value.length < 8){
+                    str.innerHTML = "Medium";
+                    pass.style.borderColor = "yellow";
+                    msg.style.color = "yellow";
+                    ico.style.color = "yellow";
+                    pass.style.transitionDuration = "1s";
+                    msg.style.transitionDuration = "1s";
+                    ico.style.transitionDuration = "1s";
+                } else if(pass.value.length >= 8){
+                    str.innerHTML = "Strong";
+                    pass.style.borderColor = "#26d730";
+                    msg.style.color = "#26d730";
+                    ico.style.color = "#26d730";
+                    pass.style.transitionDuration = "1s";
+                    msg.style.transitionDuration = "1s";
+                    ico.style.transitionDuration = "1s";
+                }
+            });
+
+    </script>
+</body>
+</html>
